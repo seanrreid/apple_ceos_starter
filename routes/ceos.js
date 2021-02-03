@@ -1,6 +1,7 @@
 const express = require('express'),
     router = express.Router(),
-    ceoModel = require('../models/ceoModel');
+    ceoModel = require('../models/ceoModel'),
+    slugify = require('slugify');
 
 const slugify = require('slugify');
 

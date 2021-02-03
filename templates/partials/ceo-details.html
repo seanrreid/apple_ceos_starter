@@ -3,9 +3,6 @@
     ${executive.name} was CEO of Apple in ${executive.year}
 </p>
 <form action="/ceos/delete" method="POST">
-    <input type="hidden" name="id" value="${executive.id}" />
-    <input type="hidden" name="ceo_name" value="${executive.name}" />
-    <input type="hidden" name="slug" value="${executive.slug}" />
-    <input type="hidden" name="year" value="${executive.year}" />
-    <button type="submit">Remove ${executive.name} from Database</button>
+    <input type="hidden" name="ceo_id" value="${executive.id}" />
+    <button type="submit">Remove ${executive.name} from database</button>
 </form>
