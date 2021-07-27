@@ -3,8 +3,6 @@ const express = require('express'),
     ceoModel = require('../models/ceoModel'),
     slugify = require('slugify');
 
-const slugify = require('slugify');
-
 router.get('/', async (req, res) => {
     const ceosData = await ceoModel.getAll();
     res.json(ceosData).status(200);
