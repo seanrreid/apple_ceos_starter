@@ -11,11 +11,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static('public'));
 
-const es6Renderer = require('express-es6-template-engine');
-app.engine('html', es6Renderer);
-app.set('views', 'templates');
-app.set('view engine', 'html');
-
 const SERVER = HTTP.createServer(app);
 
 SERVER.listen(PORT, HOSTNAME, () => {
