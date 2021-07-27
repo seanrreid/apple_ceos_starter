@@ -9,13 +9,25 @@ class CEOModel {
     }
 
     static async getAll() {
-        const response = await db.any(`SELECT * FROM apple_ceos;`);
-        return response;
+        try {
+            const response = await db.any(`SELECT * FROM apple_ceos;`);
+            return response;
+        } catch (error) {
+            console.error('ERROR:', error.message);
+            return error.message;
+        }
     }
 
     static async getBySlug(slug) {
-        const response = await db.one(`SELECT * FROM apple_ceos WHERE slug = '${slug}';`);
-        return response;
+        try {
+            const response = await db.one(
+                `SELECT * FROM apple_ceos WHERE slug = '${slug}';`
+            );
+            return response;
+        } catch (error) {
+            console.error('ERROR:', error.message);
+            return error.message;
+        }
     }
 
     static async addEntry(name, slug, year) {
@@ -25,18 +37,21 @@ class CEOModel {
             );
             return response;
         } catch (error) {
-            console.log("ERROR:", error.message)
+            console.log('ERROR:', error.message);
             return error.message;
         }
     }
 
     async deleteEntry() {
         try {
-            const response = await db.result(`DELETE FROM apple_ceos WHERE id = $1`, [this.id]);
+            const response = await db.result(
+                `DELETE FROM apple_ceos WHERE id = $1`,
+                [this.id]
+            );
             return response;
         } catch (error) {
-             console.log('ERROR:', error.message);
-             return error.message;
+            console.log('ERROR:', error.message);
+            return error.message;
         }
     }
 }
